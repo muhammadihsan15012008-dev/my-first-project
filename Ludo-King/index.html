@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ludo Game</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <h1>🎲 LUDO GAME</h1>
+
+        <!-- INFORMASI PERMAINAN -->
+        <div class="game-info">
+
+            <h2>
+                Giliran:
+                <span id="current-player">Merah</span>
+            </h2>
+
+            <div class="dice-area">
+
+                <div id="dice-result">
+                    🎲
+                </div>
+
+                <button id="roll-button">
+                    🎲 Lempar Dadu
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PAPAN LUDO -->
+        <div id="board">
+
+            <!-- BIDAK MERAH -->
+            <div class="piece red-piece" id="red-1">●</div>
+            <div class="piece red-piece" id="red-2">●</div>
+            <div class="piece red-piece" id="red-3">●</div>
+            <div class="piece red-piece" id="red-4">●</div>
+
+            <!-- BIDAK HIJAU -->
+            <div class="piece green-piece" id="green-1">●</div>
+            <div class="piece green-piece" id="green-2">●</div>
+            <div class="piece green-piece" id="green-3">●</div>
+            <div class="piece green-piece" id="green-4">●</div>
+
+            <!-- BIDAK BIRU -->
+            <div class="piece blue-piece" id="blue-1">●</div>
+            <div class="piece blue-piece" id="blue-2">●</div>
+            <div class="piece blue-piece" id="blue-3">●</div>
+            <div class="piece blue-piece" id="blue-4">●</div>
+
+            <!-- BIDAK KUNING -->
+            <div class="piece yellow-piece" id="yellow-1">●</div>
+            <div class="piece yellow-piece" id="yellow-2">●</div>
+            <div class="piece yellow-piece" id="yellow-3">●</div>
+            <div class="piece yellow-piece" id="yellow-4">●</div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

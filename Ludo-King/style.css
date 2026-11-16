@@ -1,0 +1,548 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #222;
+
+    color: white;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+.game-container {
+    text-align: center;
+
+    width: 100%;
+
+    max-width: 600px;
+}
+
+h1 {
+    margin-bottom: 20px;
+
+    font-size: 32px;
+}
+
+
+/* =========================
+   PAPAN LUDO
+   ========================= */
+
+#board {
+    width: min(500px, 85vw);
+    height: min(500px, 85vw);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+
+    background: white;
+
+    border: 5px solid black;
+
+    position: relative;
+}
+
+/* Kotak papan */
+
+.cell {
+    border: 1px solid #777;
+
+    background: white;
+
+    position: relative;
+}
+
+
+/* =========================
+   RUMAH PEMAIN
+   ========================= */
+
+.red-home {
+    background: #e53935;
+}
+
+.green-home {
+    background: #43a047;
+}
+
+.blue-home {
+    background: #1e88e5;
+}
+
+.yellow-home {
+    background: #fdd835;
+}
+
+
+/* =========================
+   JALUR
+   ========================= */
+
+.path {
+    background: #eeeeee;
+}
+
+
+/* =========================
+   JALUR WARNA
+   ========================= */
+
+.red-path {
+    background: #ef9a9a;
+}
+
+.green-path {
+    background: #a5d6a7;
+}
+
+.blue-path {
+    background: #90caf9;
+}
+
+.yellow-path {
+    background: #fff59d;
+}
+
+
+/* =========================
+   AREA TENGAH
+   ========================= */
+
+.center {
+    background: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   INFORMASI GAME
+   ========================= */
+
+.game-info {
+    margin-bottom: 15px;
+}
+
+.game-info h2 {
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+#current-player {
+    color: #ff5252;
+}
+
+#roll-button {
+    margin-top: 15px;
+
+    padding: 12px 25px;
+
+    font-size: 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+#roll-button:hover {
+    background: #ddd;
+}
+
+.dice {
+    margin-top: 15px;
+
+    font-size: 40px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #board {
+        width: 95vw;
+
+        height: 95vw;
+    }
+
+}
+
+/* =========================
+   BIDAK LUDO
+   ========================= */
+
+.piece {
+    position: absolute;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    border: 3px solid white;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 20px;
+
+    color: white;
+
+    z-index: 100;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   BIDAK MERAH
+   ========================= */
+
+.red-piece {
+    background: #d32f2f;
+}
+
+
+/* =========================
+   BIDAK HIJAU
+   ========================= */
+
+.green-piece {
+    background: #2e7d32;
+}
+
+
+/* =========================
+   BIDAK BIRU
+   ========================= */
+
+.blue-piece {
+    background: #1565c0;
+}
+
+
+/* =========================
+   BIDAK KUNING
+   ========================= */
+
+.yellow-piece {
+    background: #f9a825;
+}
+
+
+/* =========================
+   POSISI BIDAK
+   ========================= */
+
+/* =========================
+   BIDAK MERAH
+   ========================= */
+
+#red-1 {
+    top: 8%;
+    left: 8%;
+}
+
+#red-2 {
+    top: 8%;
+    left: 22%;
+}
+
+#red-3 {
+    top: 22%;
+    left: 8%;
+}
+
+#red-4 {
+    top: 22%;
+    left: 22%;
+}
+
+
+/* =========================
+   BIDAK HIJAU
+   ========================= */
+
+#green-1 {
+    top: 8%;
+    right: 22%;
+}
+
+#green-2 {
+    top: 8%;
+    right: 8%;
+}
+
+#green-3 {
+    top: 22%;
+    right: 22%;
+}
+
+#green-4 {
+    top: 22%;
+    right: 8%;
+}
+
+
+/* =========================
+   BIDAK BIRU
+   ========================= */
+
+#blue-1 {
+    bottom: 22%;
+    left: 8%;
+}
+
+#blue-2 {
+    bottom: 22%;
+    left: 22%;
+}
+
+#blue-3 {
+    bottom: 8%;
+    left: 8%;
+}
+
+#blue-4 {
+    bottom: 8%;
+    left: 22%;
+}
+
+
+/* =========================
+   BIDAK KUNING
+   ========================= */
+
+#yellow-1 {
+    bottom: 22%;
+    right: 22%;
+}
+
+#yellow-2 {
+    bottom: 22%;
+    right: 8%;
+}
+
+#yellow-3 {
+    bottom: 8%;
+    right: 22%;
+}
+
+#yellow-4 {
+    bottom: 8%;
+    right: 8%;
+}
+
+/* =========================
+   AREA DADU
+   ========================= */
+
+.dice-area {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+#dice-result {
+    width: 55px;
+
+    height: 55px;
+
+    background: white;
+
+    color: black;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    border: 2px solid #555;
+}
+
+#roll-button {
+    padding: 12px 20px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+#roll-button:hover {
+    transform: scale(1.05);
+}
+
+/* ===============================
+   JALUR LUDO
+   =============================== */
+
+.ludo-path {
+    position: absolute;
+
+    width: 6.66%;
+
+    height: 6.66%;
+
+    background: white;
+
+    border: 1px solid #999;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1;
+}
+
+
+/* ===============================
+   BIDAK LUDO
+   =============================== */
+
+.piece {
+    position: absolute;
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    z-index: 5;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+/* WARNA BIDAK */
+
+.red-piece {
+    background: #e53935;
+
+    color: white;
+
+    border: 3px solid white;
+}
+
+.green-piece {
+    background: #43a047;
+
+    color: white;
+
+    border: 3px solid white;
+}
+
+.yellow-piece {
+    background: #fbc02d;
+
+    color: white;
+
+    border: 3px solid white;
+}
+
+.blue-piece {
+    background: #1e88e5;
+
+    color: white;
+
+    border: 3px solid white;
+}
+
+/* =========================
+   KOTAK PAPAN
+   ========================= */
+
+#board {
+    overflow: hidden;
+}
+
+.cell {
+    border: 1px solid #777;
+    position: relative;
+}
+
+
+/* =========================
+   PION
+   ========================= */
+
+.piece {
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
